@@ -1,11 +1,6 @@
 <% if cached_recently_viewed_products.any? %>
-  <div id="recently_viewed" class="mt-4" data-hook>
-    <h3 class="product-section-title"><%= Spree.t(:recently_viewed_products) %></h3>
-
-    <ul id="recently_viewed_products" class="list-group">
-      <% cached_recently_viewed_products.each do |product| %>
-        <li class="list-group-item"><%= link_to product.name, product %></li>
-      <% end %>
-    </ul>
+  <div id="recently_viewed" class="mt-16" data-hook>
+    <h2 class="text-lg font-medium text-gray-900 product-details-carousel-text"><%= Spree.t(:recently_viewed_products) %></h2>
+    <%= render 'spree/shared/carousel_4_products', id: "recently-viewed-products-container", products: cached_recently_viewed_products %>
   </div>
 <% end %>
